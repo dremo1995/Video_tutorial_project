@@ -1,0 +1,80 @@
+{{#if isAuthenticated}}
+<h1 class="text-center">Courses</h1>
+<section>
+  <a href="/course/create" class="btn btn-warning">Create Course</a>
+  <form class="search float-right">
+    
+    <input type="text"  name="search" placeholder="Find a Class" />
+    <input type="submit" class="btn btn-info" value="Search" />
+  </form>
+</section>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="card-deck d-flex justify-content-center">
+
+      {{#each courses}}
+      <div class="card mb-4">
+        <img
+          class="card-img-top"
+          src="{{imageUrl}}"
+          alt="Card image cap"
+          width="400"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{title}}</h4>
+        </div>
+        <div class="card-footer">
+          <a href="/details/{{_id}}"><button
+              type="button"
+              class="btn btn-info"
+            >Details</button></a>
+          <small class="float-right">Created: {{createAt}}</small>
+        </div>
+      </div>
+    {{else}}
+    <h3 class="text-center">No courses...</h3>
+    </div>
+  </div>
+</div>
+{{/each}}
+{{else}}
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Video Tutorials</h1>
+    <p class="lead">Start Self-Study Today: It'll Change Your Life</p>
+  </div>
+</div>
+
+<div>
+  <h1 class="text-center">Top Courses</h1>
+  <div class="container mt-3">
+    <div class="row d-flex justify-content-center">
+
+      <div class="card-deck">
+        {{#each courses}}
+        <div class="card mb-4">
+          <img
+            class="card-img-top"
+            src="{{imageUrl}}"
+            alt="Card image cap"
+            width="400"
+          />
+          <div class="card-body">
+            <h4 class="card-title">{{title}}</h4>
+          </div>
+        </div>
+      
+     
+    {{else}}
+    <h4 class="text-center">No courses...</h4>
+{{/each}}
+      </div>
+    </div>   
+  </div>
+</div>
+
+
+{{/if}}

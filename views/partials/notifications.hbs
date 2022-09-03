@@ -1,0 +1,21 @@
+{{#if errorMessage}}
+
+  <div class="notifications error">
+    {{errorMessage}}
+  </div>
+{{/if}}
+
+{{#if successMessage}}
+  <div class="notifications success">
+    {{successMessage}}
+  </div>
+{{/if}}
+
+<script>
+  document.querySelectorAll('.notifications').forEach(noti=>{ setTimeout(()=>{
+  noti.remove(); }, 2000) })
+</script>
+
+{{! <section class="notifications">
+  <p class="notification-message">Message...</p>
+</section> }}
